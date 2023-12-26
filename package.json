@@ -1,0 +1,60 @@
+{
+  "name": "forum-api",
+  "version": "1.0.0",
+  "description": "Forum API",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "start:dev": "nodemon src/app.js",
+    "test": "jest --setupFiles dotenv/config -i",
+    "test:watch:change": "jest --watch --setupFiles dotenv/config -i",
+    "test:watch": "jest --watchAll --coverage --setupFiles dotenv/config -i",
+    "migrate": "node-pg-migrate",
+    "migrate:test": "node-pg-migrate -f config/database/test.json",
+    "lint": "eslint ./src"
+  },
+  "keywords": [],
+  "author": "Hizkia Reppi",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "@hapi/hapi": "^20.1.5",
+    "@hapi/jwt": "^2.0.1",
+    "auto-bind": "^5.0.1",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "instances-container": "^2.0.3",
+    "nanoid": "^3.1.23",
+    "pg": "^8.6.0",
+    "pino": "^8.15.1",
+    "pino-pretty": "^10.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.17",
+    "@babel/preset-env": "^7.22.15",
+    "@types/jest": "^26.0.24",
+    "babel-jest": "^29.6.4",
+    "eslint": "^8.49.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.9.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "jest": "^27.0.6",
+    "node-pg-migrate": "^5.10.0",
+    "nodemon": "^2.0.9",
+    "prettier": "^3.0.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!auto-bind)/"
+    ],
+    "verbose": true,
+    "testMatch": [
+      "**/*.test.js"
+    ]
+  }
+}
